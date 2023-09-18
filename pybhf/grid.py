@@ -60,11 +60,15 @@ class GridAxis:
     def get_index(self, key: AxisKey) -> AxisIndex:
         # Sanity check.
         if not self._is_valid_key(key):
-            raise IndexError(f"{self.name}-axis key ({key}) is out-of-bounds. Range: [{self.min}, {self.max}].")
+            raise IndexError(
+                f"{self.name}-axis key ({key}) is out-of-bounds. Range: [{self.min}, {self.max}]."
+            )
         index = self.n_bins - 1
         if key < self.max:
             index = (key - self.min) / self.size
-        return int(index + self.epsilon)  # Round to negate any effects from decimal rounding errors.
+        return int(
+            index + self.epsilon
+        )  # Round to negate any effects from decimal rounding errors.
 
     def get_key(self, index: AxisIndex) -> AxisKey:
         if not self._is_valid_index(index):
@@ -167,9 +171,7 @@ class Grid:
 
     def get_cell_key(self, index: GridIndex) -> GridKey:
         """Converts a grid index [y_idx, x_idx] to grid key [x_key, y_key]."""
-        y_key, x_key = self._y_axis.get_key(index[0]), self._x_axis.get_key(
-            index[1]
-        )
+        y_key, x_key = self._y_axis.get_key(index[0]), self._x_axis.get_key(index[1])
         return x_key, y_key
 
     def get_nonzero_cells(self) -> Tuple[GridIndex]:

@@ -70,8 +70,8 @@ class GridAxisTestCase(unittest.TestCase):
         # Test the get_index method
         axis = GridAxis(name="X", min=0.0, max=1.0, size=0.1)
         self.assertEqual(axis.get_index(0.35), 3)
-        self.assertEqual(axis.get_index(0.), 0)
-        self.assertEqual(axis.get_index(1.), 9)
+        self.assertEqual(axis.get_index(0.0), 0)
+        self.assertEqual(axis.get_index(1.0), 9)
 
     def test_get_key(self):
         # Test the get_key method
