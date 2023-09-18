@@ -3,7 +3,7 @@
 This package provides a base class and tools for implementing a Bayes Histogram Filter. Users would need to implement
 the `histogram.predict(...)` and `histogram.update(...)` methods.
 
-This code was inspired by the code here (https://irwinsnet.github.io/probrob/nb07.html).
+This code was inspired by [this code](https://irwinsnet.github.io/probrob/nb07.html).
 
 ### How To Set Up
 Run the following commands to install this package. **Note**: This package was developed using Python 3.8.
